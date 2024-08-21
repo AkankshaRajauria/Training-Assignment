@@ -1,0 +1,9 @@
+.add-btn {
+    background-color: #8d69e5;
+    color: white;
+    font-weight: 600;
+}
+
+.todoItem {
+    list-style: none;
+}

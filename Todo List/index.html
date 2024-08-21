@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://kit.fontawesome.com/985d51644f.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 class="text-center">Todo List</h1>
+        <div class="row">
+           <div class="col-md-8 offset-md-2">
+            <form>
+                <div class="d-flex align-items-center justify-content-center">
+                    <input type="text" value="" class="todoValue form-control"/>
+                    <button class="btn ml-2 add-btn">Add Todo</button>
+                </div>
+                <div class="">
+                    <div class="mt-4 todoLists">
+                    </div>
+                </div>
+            </form>
+           </div> 
+        </div>
+    </div>
+    <script>
+      const todoVal = document.querySelector('.todoValue');
+      const todoLists = document.querySelector('.todoLists');
+
+      const getTodoList = () => {
+        return JSON.parse(localStorage.getItem('item')) || [];
+      }
+
+      const addListToStorage = (item) => {
+        return localStorage.setItem("item", JSON.stringify(item));
+      }
+
+      const displayToDoList = () => {
+        listValue = getTodoList();
+
+        let statement = '';
+        listValue.forEach((element,i) => {
+          statement += `<li class="todoItem d-flex justify-content-between mt-4">
+                          <div class="text-capitalize"><span class="font-weight-bold mr-2">${i}.</span>${element}</div>
+                          <div>
+                            <button class="btn btn-danger" onclick="deleteToDoItem(${i})">Delete</button>
+                          </div>
+                        </li>`
+          todoLists.innerHTML = statement;
+        });
+      }
+
+      const addToDoList = (e) => {
+        e.preventDefault();
+        listValue = getTodoList();
+        let newItem = todoVal.value.trim();
+        
+        if(newItem.length != 0) {
+            console.log("new", newItem, typeof listValue);
+            listValue.push(newItem);
+            listValue = [...new Set(listValue)];
+            addListToStorage(listValue);
+        }
+
+        let statement = '';
+        listValue.forEach((element,i) => {
+          statement += `<li class="todoItem d-flex justify-content-between mt-4">
+                          <div class="text-capitalize"><span class="font-weight-bold mr-2">${i}.</span>${element}</div>
+                          <div>
+                            <button class="btn btn-danger" onclick="deleteToDoItem(${i})">Delete</button>
+                          </div>
+                        </li>`
+          todoLists.innerHTML = statement;
+        });
+
+      };
+      document.querySelector(".add-btn").addEventListener("click", (e) => {
+        addToDoList(e);
+      });
+
+      const deleteToDoItem = (id) => {
+        listValue.splice(id,1);
+        addListToStorage(listValue);
+        displayToDoList();
+      }
+    </script>
+</body>
+</html>
