@@ -1,0 +1,18 @@
+.body {
+    height: 100%;
+    width: 100%;
+}
+
+.bg-colored {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+}
+.bg-blue {
+    background-color: #a9c2d7;
+    height: 200vh;
+}
+
+.strike {
+    text-decoration: line-through;
+}
