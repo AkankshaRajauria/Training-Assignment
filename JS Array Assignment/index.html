@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Create Array
+        const fruits = ["Apple", "Banana", "Mango"];
+        let f = fruits[0];
+        let l = fruits[fruits.length - 1];
+        console.log("first element", f);
+        console.log("last element", l);
+
+        //Modify Array Elements
+        fruits.splice(1, 1, "Orange");
+        console.log("Replace Banana with Orange", fruits);
+
+        fruits.splice(3,0,"Pineapple");
+        console.log("Add Pineapple in the end", fruits);
+
+        fruits.splice(0, 1);
+        console.log("Remove first element", fruits);
+
+        //Array Methods
+        const fruits2 = ["Apple", "Banana", "Mango", "Pear", "Plum", "Strawberry", "Orange"];
+
+        let filteredFruits = fruits2.filter((fruit) => fruit.length > 5)
+        console.log("Filtered Fruits", filteredFruits);
+
+        //Sort and Reverse
+        fruits2.sort();
+        console.log("Sorted Fruits", fruits2);
+
+        fruits2.reverse();
+        console.log("Sorted Fruits", fruits2);
+
+        //Find and Index
+        let index = fruits2.indexOf("Mango");
+        console.log("index", index)
+
+        let findFruit = fruits2.find((fruit) => fruit.includes("g"));
+        console.log("find", findFruit);
+        
+        //Array Transformation with map and filter:
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const squareNumbers = numbers.map((number) => number * number);
+        console.log("Square Numbers", squareNumbers);
+        
+        const evenNumber = numbers.filter((num) => num % 2 == 0);
+        console.log("Even Number", evenNumber);
+
+        //Aggregate Data with reduce:
+        const expenses = [ { amount: 50, category: 'Groceries' }, { amount: 20, category: 'Transportation' }, { amount: 100, category: 'Entertainment' }, { amount: 80, category: 'Groceries' }, { amount: 30, category: 'Transportation' } ];
+        //Total sum of amount with reduce
+        const totalExpenses = expenses.reduce(getTotalAmount, 0);
+        function getTotalAmount(total, num) {
+          return total + num.amount;
+        }
+        console.log("Total Amount", totalExpenses);
+
+        //Array Flattening:
+        const nestedArray = [1, [2, [3, [4, 5]], 6], 7, [8, 9]];
+        console.log("Flattened Array", nestedArray.flat(3));
+
+
+        //Object Assignments
+
+        //Create and Access Properties:
+
+        const car = {
+          make: 'Scorpio',
+          model: 'S11',
+          year: 2024
+        };
+
+        console.log("Access the property:", car.make, car.year);
+
+        //Modify Object Properties:
+        car.model = "Camry";
+        car.color = "blue";
+        console.log("car",  car);
+
+        //Iterate Over Object Properties:
+        for (const property in car) {
+          if (car.hasOwnProperty(property)) { // Check if the property is directly on the car object
+            console.log(`${property}: ${car[property]}`);
+          }
+        }
+
+        //Nested Objects:
+          const person = {
+            firstName: 'John',
+            lastName: "Doe",
+            address : {
+               street: "Satyam Tower",
+               city: "Gwalior",
+               zipcode: "474011"
+            }
+          }
+          console.log("Nested Object", person.address.city);
+
+        //Array of Objects:
+        const students = [{name: "Radha", grade: "100"}, {name: "Krishna", grade: "95"}, {name: "Ram", grade: "90"}]
+
+        students.forEach((student) => {
+            console.log(`Name: ${student.name},  Grade: ${student.grade}`);
+        })
+
+        //Destructuring
+        //Object destructuring to extract make and model
+        const { make, model } = car;
+        
+        console.log(`Make: ${make}`);
+        console.log(`Model: ${model}`);
+  
+        //Array destructuring to extract the first two fruits
+        const [firstFruit, secondFruit] = fruits;
+
+        console.log(`First fruit: ${firstFruit}`);
+        console.log(`Second fruit: ${secondFruit}`);
+        
+        //Merge Objects:
+        const obj1 = { a: 1, b: 2 };
+        const obj2 = { c: 3, d: 4 };
+
+       const mergedObj = { ...obj1, ...obj2 };
+        
+
+
+
+    </script>
+</body>
+</html>
