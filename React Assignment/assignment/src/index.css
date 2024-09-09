@@ -1,0 +1,136 @@
+@font-face {
+  font-family: "Telus-Web-Reg";
+  src: url("./assets/fonts/Telus-Web-Reg.ttf");
+}
+body {
+  margin: 0;
+  font-family: "Telus-Web-Reg"!important;
+  width: 100%;
+  height: 100%;
+}
+#root {
+  background-color: #c2c2c2;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.searchWrapper {
+  background-color: white;
+}
+.search-icon {
+  width: 20px;
+  height: 20px;
+}
+.bg-purple {
+  background-color: rgb(75 40 109)!important;
+}
+
+.elipsis-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 38%;
+  white-space: nowrap;
+}
+.elipsis-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.card-container {
+  box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+}
+
+.box {
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.box ul {
+  list-style: none;
+  padding-left: 15px;
+}
+.paginationBtn li a 
+{
+  padding: 8px!important;
+  border-radius: 10px;
+  align-items: center;
+  display: flex;
+  background-color: white;
+  color: rgb(75 40 109);
+  margin-left: 3px!important;
+  margin-right: 3px!important;
+  box-shadow: 0 14px 28px rgb(182 182 182), 0 10px 10px rgb(154 154 154);
+  text-decoration: none;
+}
+.previousBtn
+{
+  background-color: rgb(75 40 109);
+  padding: 8px;
+  border-radius: 10px;
+  align-items: center;
+  display: flex;
+  color: white;
+  text-decoration: none;
+  margin-right: 0px;
+}
+.nextBtn
+{
+  background-color: rgb(75 40 109);
+  padding: 9px;
+  border-radius: 10px;
+  align-items: center;
+  display: flex;
+  color: white;
+  text-decoration: none;
+  margin-left: 0px;
+
+}
+.pagination-container ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.paginationBtn
+{
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  justify-content: center;
+  display: flex;
+}
+.paginationActive a
+{
+  background-color: rgb(75 40 109)!important;
+  color: white!important;
+}
+.paginationBtn li a:hover {
+  background-color: rgb(75 40 109);
+  color: white!important;
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-flex {
+    flex-direction: column;
+  }
+}
+@media (max-width: 576px) {
+  .col-sm-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+  }
+  .paginationBtn li a {
+    padding:5px !important;
+  }
+  .mobile-flex-2 {
+    flex-direction: column;
+  }
+  .mx-xs-3 {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+}
+
